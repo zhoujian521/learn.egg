@@ -11,4 +11,7 @@ module.exports = app => {
   router.get('/search', controller.search.index);
   router.get(/^\/search\/([\w-.]+\/[\w-.]+)$/, controller.search.detail);
   router.post('/form', controller.form.index);
+  router.post('/user/create', controller.user.create);
+  router.post('/user/delete', controller.user.delete);
+  router.post('/user/update', controller.user.update);
 };

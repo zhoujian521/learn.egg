@@ -9,7 +9,9 @@
   "dependencies": {
     "egg": "^2.15.1",
     "egg-scripts": "^2.11.0",
-    "egg-validate": "^2.0.2"
+    "egg-sequelize": "^5.2.0",
+    "egg-validate": "^2.0.2",
+    "mysql2": "^1.7.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -18,13 +20,14 @@
     "egg-ci": "^1.11.0",
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "eslint-config-egg": "^7.1.0",
+    "sequelize-cli": "^5.5.1"
   },
   "engines": {
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-example",
+    "start": "egg-scripts start --port=7001 --daemon --title=egg-server-example",
     "stop": "egg-scripts stop --title=egg-server-example",
     "dev": "egg-bin dev --port 7001",
     "debug": "egg-bin debug",

@@ -21,6 +21,28 @@ class UserController extends Controller {
       name: `hello ${ctx.params.id}`,
     };
   }
+
+  async create() {
+    const { ctx } = this;
+    const { name, age } = ctx.request.body;
+    const user = await ctx.service.user.create({ name, age });
+    ctx.body = user;
+  }
+
+  async delete() {
+    const { ctx } = this;
+    const { id } = ctx.request.body;
+    const user = await ctx.service.user.destroy({ id });
+    ctx.body = user;
+  }
+
+  async update() {
+    const { ctx } = this;
+    const { id, name } = ctx.request.body;
+    const user = await ctx.service.user.update({ id, name });
+    ctx.body = user;
+  }
+
 }
 
 module.exports = UserController;

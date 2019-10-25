@@ -28,6 +28,11 @@ class AppBootHook {
     const directory = path.join(this.app.config.baseDir, 'app/validate');
     this.app.loader.loadToApp(directory, 'validate');
 
+    const result = await this.app.curl('https://registry.npm.taobao.org/egg/latest', {
+      dataType: 'json',
+    });
+    this.app.logger.info('Egg latest version: %s', JSON.stringify(result.data.version));
+
     // 所有的配置已经加载完毕
     // 可以用来加载应用自定义的文件，启动自定义的服务
 

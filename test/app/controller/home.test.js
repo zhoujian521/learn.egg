@@ -1,6 +1,6 @@
 'use strict';
 
-const { app, assert } = require('egg-mock/bootstrap');
+const { app, assert, mock } = require('egg-mock/bootstrap');
 
 describe('test/app/controller/home.test.js', () => {
   it('should assert', () => {
@@ -15,7 +15,7 @@ describe('test/app/controller/home.test.js', () => {
   before(() => console.log('order 1'));
   before(() => console.log('order 2'));
   after(() => console.log('order 6'));
-  beforeEach(() => console.log('order 3'));
+  beforeEach(mock.restore);
   afterEach(() => console.log('order 5'));
   it('should worker', () => console.log('order 4'));
 

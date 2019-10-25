@@ -37,11 +37,34 @@ module.exports = appInfo => {
     dir: 'home/admin/logs',
   };
 
+  // sql配置
+  const mysql = {
+    host: '127.0.0.1',
+    port: '3306',
+    user: 'root',
+    password: '11111111',
+    database: 'egg_demo',
+  };
+
+  config.mysql = {
+    // 单数据库信息配置
+    client: mysql,
+    // 是否加载到 app 上，默认开启
+    app: true,
+    // 是否加载到 agent 上，默认关闭
+    agent: false,
+  };
+
+  // ORM 配置
+  config.sequelize = {
+    ...mysql,
+    dialect: 'mysql',
+    timezone: '+08:00',
+  };
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
   };
-
 
   return {
     ...config,
